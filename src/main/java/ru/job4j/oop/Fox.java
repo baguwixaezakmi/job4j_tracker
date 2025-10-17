@@ -5,5 +5,4 @@ public class Fox {
         ball.tryRun(true);
     }
 
-
 }

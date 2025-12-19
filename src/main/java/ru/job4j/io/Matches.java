@@ -18,7 +18,7 @@ public class Matches {
                 count -= matches;
                 System.out.println("Осталось " + count + " спичек");
                 turn = !turn;
-            } else if (count <=3 && matches > count) {
+            } else if (matches > count) {
                 System.out.println("Введённое число должно быть не больше остатка");
             } else {
                 System.out.println("Введённое число должно быть в диапазоне от 1 до 3");

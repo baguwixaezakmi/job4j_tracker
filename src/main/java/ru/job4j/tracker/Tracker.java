@@ -30,13 +30,6 @@ public class Tracker {
         return Arrays.copyOf(result, counter);
     }
 
-    public Item findById(int id) {
-        int index = indexOf(id);
-        return index != -1
-            ? items[index]
-            : null;
-    }
-
     private int indexOf(int id) {
         int result = -1;
         for (int index = 0; index < size; index++) {
@@ -46,6 +39,13 @@ public class Tracker {
             }
         }
         return result;
+    }
+
+    public Item findById(int id) {
+        int index = indexOf(id);
+        return index != -1
+            ? items[index]
+            : null;
     }
 
     public boolean replace(int id, Item item) {

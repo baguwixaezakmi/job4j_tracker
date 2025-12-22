@@ -9,15 +9,27 @@ public class StartUI {
             showMenu();
             System.out.print("Выбрать: ");
             int select = Integer.parseInt(scanner.nextLine());
-            if (select == 0) {
-                System.out.println("=== Создание новой заявки ===");
-                System.out.print("Введите имя: ");
-                String name = scanner.nextLine();
-                Item item = new Item(name);
-                tracker.add(item);
-                System.out.println("Добавленная заявка: " + item);
-            } else if (select == 6) {
-                run = false;
+            switch (select) {
+                case 0 -> {
+                    System.out.println("=== Создание новой заявки ===");
+                    System.out.print("Введите имя: ");
+                    String name = scanner.nextLine();
+                    Item item = new Item(name);
+                    tracker.add(item);
+                    System.out.println("Добавленная заявка: " + item);
+                }
+                case 1 -> {
+                    System.out.println("=== Вывод всех заявок ===");
+                    Item[] items = tracker.findAll();
+                    if (items.length > 0) {
+                        for (Item item : items) {
+                            System.out.println(item);
+                        }
+                    } else {
+                        System.out.println("Хранилище еще не содержит заявок");
+                    }
+                }
+                case 6 -> run = false;
             }
         }
     }
@@ -39,4 +51,5 @@ public class StartUI {
         Tracker tracker = new Tracker();
         new StartUI().init(scanner, tracker);
     }
+
 }

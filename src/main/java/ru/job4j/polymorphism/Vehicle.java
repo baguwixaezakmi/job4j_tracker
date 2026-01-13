@@ -1,11 +1,14 @@
 package ru.job4j.polymorphism;
 
 public interface Vehicle extends Fuel {
-    public static final int WHEELS = 4;
+    int WHEELS = 4;
 
     void accelerate();
+
     void brake();
+
     void steer();
+
     void changeGear();
 
     static void getDragCoefficient() {

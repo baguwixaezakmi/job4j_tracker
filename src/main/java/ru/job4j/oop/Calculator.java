@@ -2,22 +2,22 @@ package ru.job4j.oop;
 
 public class Calculator {
 
-    private static final int x = 5;
+    private static final int X = 5;
 
     public static int sum(int y) {
-        return x + y;
+        return X + y;
     }
 
     public static int minus(int m) {
-        return m - x;
+        return m - X;
     }
 
     public int multiply(int a) {
-        return x * a;
+        return X * a;
     }
 
     public int divide(int d) {
-        return d / x;
+        return d / X;
     }
 
     public int sumAllOperation(int s) {

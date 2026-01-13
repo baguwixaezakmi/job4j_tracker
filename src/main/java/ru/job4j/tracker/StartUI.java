@@ -80,6 +80,7 @@ public class StartUI {
                 case 4 -> findItemById(input, tracker);
                 case 5 -> findItemByName(input, tracker);
                 case 6 -> run = false;
+                default -> System.out.println("Выбери пункт от 1 до 6");
             }
         }
     }

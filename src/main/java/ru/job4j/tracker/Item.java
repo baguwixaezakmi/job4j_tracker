@@ -21,12 +21,6 @@ public class Item {
         this.name = name;
     }
 
-    public static void main(String[] args) {
-        Item item1 = new Item();
-        Item item2 = new Item("Name");
-        Item item3 = new Item(13, "Name");
-    }
-
     public int getId() {
         return id;
     }

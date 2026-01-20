@@ -5,8 +5,9 @@ public class BackArray {
         int middle = names.length / 2;
         for (int index = 0; index < middle; index++) {
             String temp = names[index];
-            names[index] = names[names.length - 1 - index];
-            names[names.length - 1 - index] = temp;
+            int lastIndex = names.length - 1;
+            names[index] = names[lastIndex - index];
+            names[lastIndex - index] = temp;
         }
         return names;
     }

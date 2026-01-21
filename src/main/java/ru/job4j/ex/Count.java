@@ -2,10 +2,10 @@ package ru.job4j.ex;
 
 public class Count {
     public static int add(int start, int finish) {
-        int result = 0;
         if (start > finish) {
             throw new IllegalArgumentException("Start should be less than finish.");
         }
+        int result = 0;
         for (int index = start; index != finish; index++) {
             result += index;
         }

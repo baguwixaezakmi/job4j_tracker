@@ -6,23 +6,16 @@ public class PasswordValidator {
     public static String validate(String password) {
 
         if (password == null) {
-            throw new IllegalArgumentException(
-                    "Password can't be null"
-            );
+            throw new IllegalArgumentException("Password can't be null");
         }
-
         if (password.length() < 8 || password.length() > 32) {
-            throw new IllegalArgumentException(
-                    "Password should be length [8, 32]"
-            );
+            throw new IllegalArgumentException("Password should be length [8, 32]");
         }
 
         String lower = password.toLowerCase();
         for (String word : FORBIDDEN) {
             if (lower.contains(word)) {
-                throw new IllegalArgumentException(
-                        "Password shouldn't contain substrings: qwerty, 12345, password, admin, user"
-                );
+                throw new IllegalArgumentException("Password shouldn't contain substrings: qwerty, 12345, password, admin, user");
             }
         }
 
@@ -32,7 +25,6 @@ public class PasswordValidator {
         boolean hasSpecial = false;
 
         for (char symbol : password.toCharArray()) {
-
             if (Character.isUpperCase(symbol)) {
                 hasUpCase = true;
             }
@@ -48,24 +40,16 @@ public class PasswordValidator {
         }
 
         if (!hasUpCase) {
-            throw new IllegalArgumentException(
-                    "Password should contain at least one uppercase letter"
-            );
+            throw new IllegalArgumentException("Password should contain at least one uppercase letter");
         }
         if (!hasLowCase) {
-            throw new IllegalArgumentException(
-                    "Password should contain at least one lowercase letter"
-            );
+            throw new IllegalArgumentException("Password should contain at least one lowercase letter");
         }
         if (!hasDigit) {
-            throw new IllegalArgumentException(
-                    "Password should contain at least one figure"
-            );
+            throw new IllegalArgumentException("Password should contain at least one figure");
         }
         if (!hasSpecial) {
-            throw new IllegalArgumentException(
-                    "Password should contain at least one special symbol"
-            );
+            throw new IllegalArgumentException("Password should contain at least one special symbol");
         }
 
         return password;

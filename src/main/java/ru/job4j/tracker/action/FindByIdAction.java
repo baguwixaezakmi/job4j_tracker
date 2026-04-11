@@ -5,6 +5,8 @@ import ru.job4j.tracker.Item;
 import ru.job4j.tracker.output.Output;
 import ru.job4j.tracker.Tracker;
 
+import java.util.Objects;
+
 public class FindByIdAction implements UserAction {
     private final Output output;
 
@@ -21,11 +23,7 @@ public class FindByIdAction implements UserAction {
         output.println("=== Вывод заявки по id ===");
         int id = input.askInt("Введите id: ");
         Item item = tracker.findById(id);
-        if (item != null) {
-            output.println(item);
-        } else {
-            output.println("Заявка с введенным id: " + id + " не найдена.");
-        }
+        output.println(Objects.requireNonNullElseGet(item, () -> "Заявка с введенным id: " + id + " не найдена."));
         return true;
     }
 }

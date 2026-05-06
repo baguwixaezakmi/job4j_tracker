@@ -1,8 +1,5 @@
 package ru.job4j.bank;
 
-import ru.job4j.bank.Account;
-import ru.job4j.bank.User;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,7 +9,7 @@ public class BankService {
     private final Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        users.putIfAbsent(user, new ArrayList<Account>());
+        users.putIfAbsent(user, new ArrayList<>());
     }
 
     public void deleteUser(String passport) {
@@ -45,10 +42,11 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
 
-        if (user != null) {
-            List<Account> accounts = getAccounts(user);
-            for (Account account : accounts) {
-                if (requisite.equals(account.getRequisite())) return account;
+        if (user == null) return null;
+
+        for (Account account : getAccounts(user)) {
+            if (requisite.equals(account.getRequisite())) {
+                return account;
             }
         }
 
@@ -59,6 +57,7 @@ public class BankService {
                                  String destinationPassport, String destinationRequisite,
                                  double amount) {
         boolean result = false;
+
         Account senderAccount = findByRequisite(sourcePassport, sourceRequisite);
         Account payeeAccount = findByRequisite(destinationPassport, destinationRequisite);
 

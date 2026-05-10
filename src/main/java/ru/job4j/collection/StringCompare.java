@@ -9,11 +9,8 @@ public class StringCompare implements Comparator<String> {
         int size = Math.min(left.length(), right.length());
 
         for (int i = 0; i < size; i++) {
-            if (left.charAt(i) < right.charAt(i)) {
-                return -1;
-            } else if (left.charAt(i) > right.charAt(i)){
-                return 1;
-            }
+            int cmp = Character.compare(left.charAt(i), right.charAt(i));
+            if (cmp != 0) return cmp;
         }
 
         return Integer.compare(left.length(), right.length());

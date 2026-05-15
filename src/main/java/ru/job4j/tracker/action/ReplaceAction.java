@@ -11,6 +11,7 @@ public class ReplaceAction implements UserAction {
     public ReplaceAction(Output output) {
         this.output = output;
     }
+
     @Override
     public String name() {
         return "Изменить заявку";

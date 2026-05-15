@@ -13,6 +13,7 @@ public class FindByNameAction implements UserAction {
     public FindByNameAction(Output output) {
         this.output = output;
     }
+
     @Override
     public String name() {
         return "Показать заявки по имени";

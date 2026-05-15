@@ -53,7 +53,9 @@ public class Item {
 
     @Override
     public boolean equals(Object object) {
-        if (object == null || getClass() != object.getClass()) return false;
+        if (object == null || getClass() != object.getClass()) {
+            return false;
+        }
         Item item = (Item) object;
         return Objects.equals(name, item.name);
     }

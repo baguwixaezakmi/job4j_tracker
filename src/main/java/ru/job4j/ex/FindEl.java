@@ -9,7 +9,7 @@ public class FindEl {
                 break;
             }
         }
-        if (result == - 1) {
+        if (result == -1) {
             throw new ElementNotFoundException("The element does not exist");
         }
         return result;

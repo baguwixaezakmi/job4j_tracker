@@ -42,7 +42,9 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
 
-        if (user == null) return null;
+        if (user == null) {
+            return null;
+        }
 
         for (Account account : getAccounts(user)) {
             if (requisite.equals(account.getRequisite())) {

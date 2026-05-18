@@ -19,5 +19,11 @@ public class AttachmentSort {
         };
         attachments.sort(comparator);
         System.out.println(attachments);
+        Comparator<Attachment> compByName = new Comparator<>() {
+            @Override
+            public int compare(Attachment left, Attachment right) {
+                return left.getName().compareTo(right.getName());
+            }
+        };
     }
 }

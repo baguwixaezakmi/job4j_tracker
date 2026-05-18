@@ -13,6 +13,9 @@ public class FI {
         Comparator<Attachment> comparator = (left, right)
                                             -> Integer.compare(left.getSize(), right.getSize());
         Arrays.sort(attachments, comparator);
+
+        Comparator<String> comparatorText = (left, right) -> left.compareTo(right);
+        Comparator<String> comparatorDescSize = (left, right) -> Integer.compare(right.length(), left.length());
     }
 
 }

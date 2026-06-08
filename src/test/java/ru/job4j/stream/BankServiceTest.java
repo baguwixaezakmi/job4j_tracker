@@ -57,4 +57,26 @@ class BankServiceTest {
         Account result = new BankService(users).findByRequisite("123", "123456");
         assertThat(result).isNull();
     }
+
+    @Test
+    void whenUserPassportIsNull() {
+        Map<User, List<Account>> users = Map.of(
+            new User(null, "name_1"), List.of(
+                new Account("321123", 200D)
+            )
+        );
+        User result = new BankService(users).findByPassport("123");
+        assertThat(result).isNull();
+    }
+
+    @Test
+    void whenAccountRequisiteIsNull() {
+        Map<User, List<Account>> users = Map.of(
+            new User("123", "name_1"), List.of(
+                new Account(null, 200D)
+            )
+        );
+        Account result = new BankService(users).findByRequisite("123", "321123");
+        assertThat(result).isNull();
+    }
 }

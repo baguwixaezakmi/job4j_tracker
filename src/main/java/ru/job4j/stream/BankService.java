@@ -2,6 +2,7 @@ package ru.job4j.stream;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class BankService {
     private final Map<User, List<Account>> users;
@@ -13,7 +14,7 @@ public class BankService {
     public User findByPassport(String passport) {
         return users.keySet()
             .stream()
-            .filter(user -> user.passport().equals(passport))
+            .filter(user -> Objects.equals(user.passport(), passport))
             .findFirst()
             .orElse(null);
     }
@@ -27,7 +28,7 @@ public class BankService {
 
         return users.get(user)
             .stream()
-            .filter(acc -> acc.requisite().equals(requisite))
+            .filter(acc -> Objects.equals(acc.requisite(), requisite))
             .findFirst()
             .orElse(null);
     }

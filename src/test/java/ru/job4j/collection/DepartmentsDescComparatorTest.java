@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class DepartmentsDescComparatorTest {
+
     @Test
     void compare() {
         int result = new DepartmentsDescComparator().compare(

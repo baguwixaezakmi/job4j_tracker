@@ -12,7 +12,7 @@ public class PriorityQueue {
     /**
      * Хранение задания осуществляется в коллекции типа LinkedList
      */
-    private LinkedList<Task> tasks = new LinkedList<>();
+    private final LinkedList<Task> tasks = new LinkedList<>();
 
     /**
      * Метод принимает на вход заявку и добавляет её в очередь.
@@ -23,7 +23,7 @@ public class PriorityQueue {
     public void put(Task task) {
         int index = 0;
 
-        for (Task element : tasks) {
+        for (var element : tasks) {
             if (task.getPriority() >= element.getPriority()) {
                 index++;
             } else {
